@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_180116) do
+ActiveRecord::Schema.define(version: 2019_07_08_143325) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.boolean "finished", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "net_promoter_scores", force: :cascade do |t|
+    t.integer "score", null: false
+    t.string "touchpoint", null: false
+    t.string "respondent_class", null: false
+    t.integer "respondent_id", null: false
+    t.string "object_class", null: false
+    t.integer "object_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

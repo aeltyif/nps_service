@@ -594,3 +594,30 @@ Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2019-07-08 16:24:13 +030
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2019-07-08 16:24:13 +0300
 Started GET "/api-docs/v1/swagger.json" for ::1 at 2019-07-08 16:24:13 +0300
 Started GET "/api-docs/favicon-32x32.png" for ::1 at 2019-07-08 16:24:13 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateNetPromoterScores (20190708143325)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20190708143325_create_net_promoter_scores.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "net_promoter_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "score" integer NOT NULL, "touchpoint" varchar NOT NULL, "respondent_class" varchar NOT NULL, "respondent_id" integer NOT NULL, "object_class" varchar NOT NULL, "object_id" integer NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190708143325_create_net_promoter_scores.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190708143325"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mNetPromoterScore Load (0.1ms)[0m  [1m[34mSELECT  "net_promoter_scores".* FROM "net_promoter_scores" ORDER BY "net_promoter_scores"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mNetPromoterScore Create (0.4ms)[0m  [1m[32mINSERT INTO "net_promoter_scores" ("score", "touchpoint", "respondent_class", "respondent_id", "object_class", "object_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["score", 5], ["touchpoint", "realtor_feedback"], ["respondent_class", "seller"], ["respondent_id", 10], ["object_class", "realtor"], ["object_id", 15], ["created_at", "2019-07-08 15:17:14.194177"], ["updated_at", "2019-07-08 15:17:14.194177"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mNetPromoterScore Load (0.2ms)[0m  [1m[34mSELECT  "net_promoter_scores".* FROM "net_promoter_scores" ORDER BY "net_promoter_scores"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mNetPromoterScore Load (0.2ms)[0m  [1m[34mSELECT  "net_promoter_scores".* FROM "net_promoter_scores" ORDER BY "net_promoter_scores"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
