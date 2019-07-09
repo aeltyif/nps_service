@@ -15,11 +15,8 @@ class CreateNetPromoterScores < ActiveRecord::Migration[5.2]
 
   def add_indexes
     add_index :net_promoter_scores, [:touchpoint]
-    add_index :net_promoter_scores, [:respondent_id, :respondent_type]
-    add_index :net_promoter_scores, [:object_id, :object_type]
-    add_index :net_promoter_scores, [:touchpoint,
-                                     :respondent_id, :respondent_type,
-                                     :object_id, :object_type],
-                                     unique: true, name: 'net_promoter_scores_data_integrity'
+    add_index :net_promoter_scores, %i[respondent_id respondent_type]
+    add_index :net_promoter_scores, %i[object_id object_type]
+    add_index :net_promoter_scores, %i[touchpoint respondent_id respondent_type object_id object_type], unique: true, name: 'net_promoter_scores_data_integrity'
   end
 end
