@@ -42,3 +42,4 @@ rails s
   - Use a real database engine like postgresql
   - Use proper caching to further enhance the service response time.
   - Write down a better integration test, controller specs currently covers for that.
+  - Use serializers to specify which columns to expose.

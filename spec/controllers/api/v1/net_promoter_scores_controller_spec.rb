@@ -4,7 +4,7 @@ RSpec.describe Api::V1::NetPromoterScoresController, type: :controller do
   let(:seller)             { create(:seller, name: 'Hello Realtor') }
   let(:realtor)            { create(:realtor, name: 'Hello Respondent') }
   let(:net_promoter_score) { create(:net_promoter_score, respondent: seller, object: realtor) }
-  let(:valid_attributes)   { FactoryBot.attributes_for(:net_promoter_score, respondent_type: 'Seller', respondent_id: seller.id , object_type: 'Realtor', object_id: realtor.id) }
+  let(:valid_attributes)   { FactoryBot.attributes_for(:net_promoter_score, respondent_type: 'Seller', respondent_id: seller.id, object_type: 'Realtor', object_id: realtor.id) }
   let(:invalid_attributes) { FactoryBot.attributes_for(:net_promoter_score, :invalid) }
 
   describe 'GET #index' do
