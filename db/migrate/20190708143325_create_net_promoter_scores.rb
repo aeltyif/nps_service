@@ -8,7 +8,12 @@ class CreateNetPromoterScores < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_indexes
+  end
 
+  private
+
+  def add_indexes
     add_index :net_promoter_scores, [:touchpoint]
     add_index :net_promoter_scores, [:respondent_id, :respondent_type]
     add_index :net_promoter_scores, [:object_id, :object_type]
