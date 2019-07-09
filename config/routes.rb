@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   namespace :api do
     namespace :v1 do
-      resources :net_promoter_scores
+      resources :net_promoter_scores, only: %i[index create]
     end
   end
 end

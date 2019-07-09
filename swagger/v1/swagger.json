@@ -5,125 +5,83 @@
     "version": "v1"
   },
   "paths": {
-    "/api/v1/games": {
+    "/api/v1/net_promoter_scores?touchpoint=realtor_feedback": {
       "get": {
-        "summary": "List all games",
+        "summary": "List all net promoter scores",
         "tags": [
-          "Games"
+          "Net Promoter Scores"
         ],
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "responses": {
           "200": {
-            "description": "games found",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "finished": {
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ]
-            }
+            "description": "Net promoter scores found"
+          },
+          "400": {
+            "description": "Invalid request"
           },
           "422": {
-            "description": "invalid request"
+            "description": "Unprocessable Entity"
           }
         }
-      },
+      }
+    },
+    "/api/v1/net_promoter_scores": {
       "post": {
-        "summary": "Create a game",
+        "summary": "Creates a net promoter score",
         "tags": [
-          "Games"
+          "Net Promoter Scores"
         ],
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "parameters": [
           {
-            "name": "game",
+            "name": "net_promoter_score",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
+                "score": {
+                  "type": "integer"
+                },
+                "touchpoint": {
                   "type": "string"
                 },
-                "finished": {
-                  "type": "boolean"
+                "respondent_type": {
+                  "type": "string"
+                },
+                "respondent_id": {
+                  "type": "integer"
+                },
+                "object_type": {
+                  "type": "string"
+                },
+                "object_id": {
+                  "type": "integer"
                 }
               },
               "required": [
-                "name",
-                "finished"
+                "score",
+                "touchpoint",
+                "respondent_type",
+                "respondent_id",
+                "object_type",
+                "object_id"
               ]
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "game created"
+            "description": "Net promoter score created"
+          },
+          "400": {
+            "description": "Invalid request"
           },
           "422": {
-            "description": "invalid request"
-          }
-        }
-      }
-    },
-    "/api/v1/games/{id}": {
-      "get": {
-        "summary": "Retrieves a game",
-        "tags": [
-          "Games"
-        ],
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "game found",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "finished": {
-                  "type": "boolean"
-                }
-              },
-              "required": [
-                "id",
-                "name"
-              ]
-            }
-          },
-          "404": {
-            "description": "game not found"
+            "description": "Unprocessable Entity"
           }
         }
       }
