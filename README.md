@@ -34,15 +34,15 @@ Realtor.create!(name: 'Realtor Name')
     RETURNS trigger AS
   $BODY$
       BEGIN
-          RAISE EXCEPTION 'no way';
+          RAISE EXCEPTION 'No data tampering is allowed';
       END;
   $BODY$
     LANGUAGE plpgsql VOLATILE
     COST 100;
 
   CREATE TRIGGER trg_prevent_update
-  BEFORE UPDATE OF dependency1, dependency2
-  ON topic
+  BEFORE UPDATE OF touchpoint, respondent_type, respondent_id, object_type, object_id
+  ON net_promoter_scores
   FOR EACH ROW
   EXECUTE PROCEDURE fnprevent_update();
   ```
