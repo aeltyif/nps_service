@@ -1,6 +1,6 @@
 # Net Promoter Scores Service
 
-## Tech Stach
+## Tech Stack
   - Ruby: 2.4
   - Ruby On Rails: 5.2.3
   - Database: Sqlite3
