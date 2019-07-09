@@ -4,7 +4,7 @@
 
 ## Tech Stach
   - Ruby: 2.4
-  - Ruby On Rails: Rails 5.2.3
+  - Ruby On Rails: 5.2.3
   - Database: Sqlite3
   - Caching: Default rails file caching
 
@@ -12,20 +12,15 @@
 ```sh
 git clone https://github.com/aeltyif/nps_service.git
 cd nps_service
-rails db:create db:migrate
+rails db:setup
 rails s
 ```
 
 ## Please Note
+  - Touchpoints are within inclusion on the model level to make sure no weird data gets inserted.
   - I have changed the column names [respondent_class object_class] to [respondent_type object_type] as i have used polymorphic association refere to the migration file please.
   - The error message for the wrong score has been changed as i'm using the native validators on the model.
   - Swagger is installed please navigate to http://localhost:3000 and you will be redirected to the documentation page.
-  - In order to create your first NPS, you are required to create a Seller record & a Realtor record
-```sh
-rails c
-Seller.create!(name: 'Seller Name')
-Realtor.create!(name: 'Realtor Name')
-```
 
 ## Todos
   - Create a trigger on the database level to prevent specific columns updates
