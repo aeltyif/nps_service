@@ -48,6 +48,7 @@ GEM
     arel (9.0.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
+    brakeman (4.4.0)
     builder (3.2.3)
     byebug (11.0.1)
     concurrent-ruby (1.1.5)
@@ -185,6 +186,7 @@ PLATFORMS
 DEPENDENCIES
   api-pagination
   bootsnap (>= 1.1.0)
+  brakeman
   byebug
   database_cleaner
   factory_bot_rails (~> 4.0)
