@@ -14,14 +14,3 @@ Metrics/ModuleLength:
 Metrics/BlockLength:
   Exclude:
     - "**/*_spec.rb"
-
-AllCops:
-  TargetRubyVersion: 2.4
-  Exclude:
-    - 'Guardfile'
-    - 'Gemfile'
-    - 'db/schema.rb'
-    - 'db/migrate/*.rb'
-    - 'config/**/*.rb'
-    - 'bin/*'
-

@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 describe 'Net Promoter Scores API' do
-
   path '/api/v1/net_promoter_scores?touchpoint=realtor_feedback' do
     get 'List all net promoter scores' do
       tags 'Net Promoter Scores'

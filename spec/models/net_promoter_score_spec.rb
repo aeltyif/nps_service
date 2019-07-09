@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe NetPromoterScore, type: :model do
   let(:realtor) { create(:realtor, name: 'Hello Realtor') }
   let(:seller)  { create(:seller, name: 'Hello Respondent') }
-  subject       { create(:net_promoter_score, respondent: seller , object: realtor) }
+  subject       { create(:net_promoter_score, respondent: seller, object: realtor) }
 
   describe 'Associations' do
     it { is_expected.to belong_to(:respondent) }

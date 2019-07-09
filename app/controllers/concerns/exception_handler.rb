@@ -19,7 +19,7 @@ module ExceptionHandler
 
   private
 
-  def handle_general_exceptions(exception)
+  def handle_general_exceptions(_exception)
     handle_exceptions('Something went wrong', :internal_server_error)
   end
 
