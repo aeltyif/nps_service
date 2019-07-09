@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :net_promoter_score do
-    score            { Faker::Number.between(1, 10) }
-    touchpoint       { 'realtor_feedback' }
-    respondent_class { 'seller' }
-    object_class     { 'realtor' }
+    score      { Faker::Number.between(1, 10) }
+    touchpoint { 'realtor_feedback' }
 
     trait :invalid do
       score { nil }

@@ -3,12 +3,18 @@ class CreateNetPromoterScores < ActiveRecord::Migration[5.2]
     create_table :net_promoter_scores do |t|
       t.integer :score, null: false
       t.string  :touchpoint, null: false
-      t.string  :respondent_class, null: false
-      t.integer :respondent_id, null: false
-      t.string  :object_class, null: false
-      t.integer :object_id, null: false
+      t.belongs_to :respondent, polymorphic: true
+      t.belongs_to :object, polymorphic: true
 
       t.timestamps
     end
+
+    add_index :net_promoter_scores, [:touchpoint]
+    add_index :net_promoter_scores, [:respondent_id, :respondent_type]
+    add_index :net_promoter_scores, [:object_id, :object_type]
+    add_index :net_promoter_scores, [:touchpoint,
+                                     :respondent_id, :respondent_type,
+                                     :object_id, :object_type],
+                                     unique: true, name: 'net_promoter_scores_data_integrity'
   end
 end
