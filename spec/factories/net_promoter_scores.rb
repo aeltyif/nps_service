@@ -4,7 +4,7 @@ FactoryBot.define do
     touchpoint { 'realtor_feedback' }
 
     trait :invalid do
-      score { nil }
+      score { 11 }
     end
   end
 end
