@@ -15,6 +15,11 @@ rails s
 ```
 
 ## Please Note
+- Default pagination size is 25 per page, if you want to increase it you can do so like the following
+```sh
+open app/controllers/api/v1/net_promoter_scores_controller.rb:10
+paginate json: filter(NetPromoterScore.all, params), per_page: 200
+```
 - Touchpoints are within inclusion on the model level to make sure no weird data gets inserted.
 - I have changed the column names respondent_class object_class to respondent_type object_type as i have used polymorphic association refere to the migration file please.
 - The error message for the wrong score has been changed as i'm using the native validators on the model.
