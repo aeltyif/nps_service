@@ -51,4 +51,11 @@ RSpec.describe NetPromoterScore, type: :model do
       expect(subject.errors.full_messages).to eq(['Cannot update duo to data integrity'])
     end
   end
+
+  describe '#respondent_does_not_equal_object' do
+    it 'returns error when equal' do\
+      wrong_nps = build(:net_promoter_score, respondent: seller, object: seller)
+      expect{ wrong_nps.save! }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Respondent cannot be the same as the object")
+    end
+  end
 end
