@@ -8,9 +8,10 @@ RSpec.describe Api::V1::NetPromoterScoresController, type: :controller do
   let(:invalid_attributes) { FactoryBot.attributes_for(:net_promoter_score, :invalid) }
 
   describe 'GET #index' do
-    it 'returns error message for missing the touchpoint' do
+    before(:each) do
       net_promoter_score
-
+    end
+    it 'returns error message for missing the touchpoint' do
       get :index, params: {}
       response_body = JSON.parse(response.body)
       expect(response).to                have_http_status(:unprocessable_entity)
@@ -18,8 +19,6 @@ RSpec.describe Api::V1::NetPromoterScoresController, type: :controller do
     end
 
     it 'returns all the data' do
-      net_promoter_score
-
       get :index, params: { touchpoint: net_promoter_score[:touchpoint] }
       expect(response).to be_successful
     end
@@ -27,8 +26,6 @@ RSpec.describe Api::V1::NetPromoterScoresController, type: :controller do
 
   describe 'POST #create' do
     context 'create a new NetPromoterScore' do
-      before(:all) do
-      end
       it 'with valid params' do
         post :create, params: { net_promoter_score: valid_attributes }
         expect(response).to have_http_status(:created)
