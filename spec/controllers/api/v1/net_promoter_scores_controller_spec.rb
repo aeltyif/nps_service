@@ -21,6 +21,13 @@ RSpec.describe Api::V1::NetPromoterScoresController, type: :controller do
     it 'returns all the data' do
       get :index, params: { touchpoint: net_promoter_score[:touchpoint] }
       expect(response).to be_successful
+      expect(response.body).to eq(NetPromoterScore.all.to_a.to_json)
+    end
+
+    it 'return data with all 3 filters' do
+      get :index, params: { touchpoint: net_promoter_score[:touchpoint], respondent_type: net_promoter_score[:respondent_type], object_type: net_promoter_score[:object_type] }
+      expect(response).to be_successful
+      expect(response.body).to eq(NetPromoterScore.all.to_a.to_json)
     end
   end
 
